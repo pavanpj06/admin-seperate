@@ -50,7 +50,7 @@ import jakarta.validation.Valid;
 
 @RestController
 //@CrossOrigin(origins = "*")
-@CrossOrigin
+
 public class AccountController {
 
 	Map<String, String> messageResponse = new HashMap<String, String>();
@@ -157,7 +157,7 @@ public class AccountController {
 
 
 	@GetMapping("/export-records-inexcel")
-	@CrossOrigin
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<byte[]> exportAccountsToExcel() throws IOException {
 	    List<UserAccountForm> accounts = accountService
 	            .getAllUserAccountDetails(0, Integer.MAX_VALUE, "id", "asc")
@@ -173,7 +173,7 @@ public class AccountController {
 	            .body(excelBytes);
 	}
 	@GetMapping("download/accounts-txt")
-	@CrossOrigin
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<byte[]> downloadAccountsTxt() throws IOException {
 	    List<UserAccountForm> accounts = accountService.getAllAccounts(); // your service method
 	    byte[] fileContent = utils.generateAccountsTxt(accounts);
