@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'java -jar target/AdminApi-0.0.1-SNAPSHOT.jar'
+                bat 'java -jar target/AdminApi-0.0.1-SNAPSHOT.jar'
             }
         }
     }
