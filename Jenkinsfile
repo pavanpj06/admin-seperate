@@ -18,9 +18,10 @@ pipeline {
             steps {
                 bat '''
                     @echo off
-                    if exist app.log del app.log
+                    echo Starting Spring Boot App...
                     start /B java -jar target/AdminApi-0.0.1-SNAPSHOT.jar --server.port=9673 --server.address=0.0.0.0 > app.log 2>&1
-                    timeout /t 5
+                    timeout /t 10
+                    echo Server started. Check app.log for logs.
                 '''
             }
         }
