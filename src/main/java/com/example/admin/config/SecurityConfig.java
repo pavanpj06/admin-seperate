@@ -47,7 +47,7 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**","/export-records-inexcel").permitAll()
+                .requestMatchers("/auth/**","get-message-basedon-time").permitAll()
                 .requestMatchers("/unlock-account").permitAll()
                 .anyRequest().authenticated()
             )
